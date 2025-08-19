@@ -11,6 +11,9 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 - Loyalty: are customers with longer memperships also the ones with better spending scores?
 - What are the preferred categories per customer segment? 
 
+## Schema
+![Schema](images/schema.png)
+
 ## Basic exploration
 ### Categorical variables
 #### Gender:
