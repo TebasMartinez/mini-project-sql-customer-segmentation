@@ -11,6 +11,45 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 - Loyalty: are customers with longer memperships also the ones with better spending scores?
 - What are the preferred categories per customer segment? 
 
+## Basic exploration
+### Categorical variables
+#### Gender:
+- Female
+- Male
+- Other
+#### Preferred category:
+- Groceries
+- Sports
+- Clothing
+- Home & Garden
+- Electronics
+### Numerical variables
+#### General averages:
+
+|AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|--------|-------------------|---------------------|-----------------------|-------------------------|
+|43.7830 |50.6850            |5.4690               |26.5960                |492.3486693048477        |
+
+#### Averages per categorical variables:
+- Gender:
+  
+|gender |AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|-------|--------|-------------------|---------------------|-----------------------|-------------------------|
+|Female |43.8766 |51.6962            |5.3165               |25.4241                |458.0188920678972        |
+|Other  |45.1651 |51.7890            |5.5107               |25.8654                |521.4389283241482        |
+|Male   |42.4342 |48.7787            |5.5658               |28.3025                |496.0901116229573        |
+
+- Preferred category:
+  
+|preferred_category|AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|------------------|--------|-------------------|---------------------|-----------------------|-------------------------|
+|Groceries         |43.7940 |51.2563            |5.3216               |27.1608                |487.2793965315699        |
+|Sports            |44.1048 |51.0143            |5.4810               |27.1143                |481.9531896772839        |
+|Clothing          |44.7882 |51.9765            |5.5000               |25.6824                |489.64841214909274       |
+|Home & Garden     |43.3495 |49.1359            |5.2233               |26.4515                |505.60063006114035       |
+|Electronics       |43.0791 |50.2977            |5.8047               |26.4279                |496.6322776971861        |
+
+
 ## Resources
 - [_Customer Segmentation: Definition, Examples + How to Do It_, Coursera](https://www.coursera.org/articles/customer-segmentation)
 - [_How to Create a Customer Segmentation Model in SQL_, GeeksforGeeks](https://www.geeksforgeeks.org/sql/how-to-create-a-customer-segmentation-model-in-sql/)
