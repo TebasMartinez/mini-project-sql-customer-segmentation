@@ -11,35 +11,43 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 - What are the preferred categories per customer segment? 
 
 ## Customer Segmentation
-- Created segmentations based on gender, age, and income. Each of these segmentations is created with views per group in each segmentation, previously creating columns with CASE-WHEN when needed.
+- Created segmentations based on Gender, age, and income. Each of these segmentations is created with views per group in each segmentation, previously creating columns with CASE-WHEN when needed.
 - RFM had already been applied to this dataset, as it came with a spending_score column. This column was used for further segmentation to create customer categories: Bad, Medium, Good, Great.
 
 ## Schema
 ![Schema](images/schema.png)
 
-## Basic exploration
+## Initial Exploration
 ### Categorical variables
 #### Gender:
-- Female
-- Male
-- Other
+
+|Gender|Customer under this category|
+|------|----------------------------|
+|Male  |357                         |
+|Other |327                         |
+|Female|316                         |
+
 #### Preferred category:
-- Groceries
-- Sports
-- Clothing
-- Home & Garden
-- Electronics
+
+|Preferred Category|Customer under this category|
+|------------------|----------------------------|
+|Electronics       |215                         |
+|Sports            |210                         |
+|Home & Garden     |206                         |
+|Groceries         |199                         |
+|Clothing          |170                         |
+
 ### Numerical variables
 #### General averages:
 
-|AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|Age|Spending Score|Membership Years|Purchase Frequency|Last Purchase Amount|
 |--------|-------------------|---------------------|-----------------------|-------------------------|
 |43.7830 |50.6850            |5.4690               |26.5960                |492.3486693048477        |
 
 #### Averages per categorical variables:
 - Gender:
   
-|gender |AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|Gender |Age|Spending Score|Membership Years|Purchase Frequency|Last Purchase Amount|
 |-------|--------|-------------------|---------------------|-----------------------|-------------------------|
 |Female |43.8766 |51.6962            |5.3165               |25.4241                |458.0188920678972        |
 |Other  |45.1651 |51.7890            |5.5107               |25.8654                |521.4389283241482        |
@@ -47,7 +55,7 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 
 - Preferred category:
   
-|preferred_category|AVG(age)|AVG(spending_score)|AVG(membership_years)|AVG(purchase_frequency)|AVG(last_purchase_amount)|
+|Preferred Category|Age|Spending Score|Membership Years|Purchase Frequency|Last Purchase Amount|
 |------------------|--------|-------------------|---------------------|-----------------------|-------------------------|
 |Groceries         |43.7940 |51.2563            |5.3216               |27.1608                |487.2793965315699        |
 |Sports            |44.1048 |51.0143            |5.4810               |27.1143                |481.9531896772839        |
