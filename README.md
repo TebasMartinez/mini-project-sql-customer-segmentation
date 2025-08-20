@@ -5,11 +5,14 @@ Mini Project created for Week 7 of Ironhack's Data Analytics Bootcamp.
 ## Data
 Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com/datasets/fahmidachowdhury/customer-segmentation-data-for-marketing-analysis) from Kaggle. Simulated customer data created for customer segmentation practice. 
   
-## Customer Segmentation / Business Questions
-- Demographic segmentation: Aggregate by age group, gender.
+## Business Questions
 - High-value segments: Which demographics generated the most revenue in their last purchase?
-- Loyalty: are customers with longer memperships also the ones with better spending scores?
+- Loyalty: are customers with longer memberships also the ones with better spending scores?
 - What are the preferred categories per customer segment? 
+
+## Customer Segmentation
+- Created segmentations based on gender, age, and income. Each of these segmentations is created with views per group in each segmentation, previously creating columns with CASE-WHEN when needed.
+- RFM had already been applied to this dataset, as it came with a spending_score column. This column was used for further segmentation to create customer categories: Bad, Medium, Good, Great.
 
 ## Schema
 ![Schema](images/schema.png)
@@ -51,6 +54,68 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 |Clothing          |44.7882 |51.9765            |5.5000               |25.6824                |489.64841214909274       |
 |Home & Garden     |43.3495 |49.1359            |5.2233               |26.4515                |505.60063006114035       |
 |Electronics       |43.0791 |50.2977            |5.8047               |26.4279                |496.6322776971861        |
+
+## Answers to Business Questions
+- High-value segments: Which demographics generated the most revenue in their last purchase?
+
+|Gender|Revenue (last purchase per customer)|
+|------|------------------------------------|
+|Male  |177104.17                           |
+|Other |170510.53                           |
+|Female|144733.97                           |
+
+|Age Group|Revenue (last purchase per customer)|
+|---------|------------------------------------|
+|Young adult|104944.94                           |
+|Seniors  |103591.66                           |
+|Over-forties|102689.03                           |
+|Over-fifties|96555.97                            |
+|Over-thirties|84567.07                            |
+
+|Customer Category|Revenue (last purchase per customer)|
+|-----------------|------------------------------------|
+|Medium customer  |127549.16                           |
+|Good customer    |124231.19                           |
+|Bad customer     |121049.7                            |
+|Great customer   |119518.62                           |
+
+- Loyalty: are customers with longer memberships also the ones with better spending scores?
+
+|Membership Years|Spending Score Average|
+|----------------|----------------------|
+|8               |55.89                 |
+|9               |53.63                 |
+|3               |51.43                 |
+|5               |50.17                 |
+|4               |50.10                 |
+|10              |49.95                 |
+|1               |49.93                 |
+|2               |49.67                 |
+|7               |49.15                 |
+|6               |47.26                 |
+
+- What are the preferred categories per customer segment?
+
+|Gender|Preferred Category|Customers who prefer this category|Percentage|
+|------|------------------|--------------------------------------------|----------|
+|Female|Home & Garden     |68                                          |21.52%    |
+|Male  |Sports            |77                                          |21.57%    |
+|Other |Electronics       |74                                          |22.63%    |
+
+|Age Group|Preferred Category|Customers who prefer this category|Percentage|
+|---------|------------------|----------------------------------|----------|
+|Young adult|Electronics       |52                                |23.21%    |
+|Over-thirties|Sports            |48                                |26.82%    |
+|Over-forties|Home & Garden     |48                                |23.19%    |
+|Over-fifties|Electronics       |41                                |21.58%    |
+|Seniors  |Sports            |46                                |23.00%    |
+
+|Customer Category|Preferred Category|Customers who prefer this category|Percentage|
+|-----------------|------------------|----------------------------------|----------|
+|Bad customer     |Home & Garden     |55                                |22.54%    |
+|Medium customer  |Electronics       |61                                |23.37%    |
+|Good customer    |Groceries         |55                                |22.54%    |
+|Great customer   |Electronics       |59                                |23.51%    |
 
 
 ## Resources
