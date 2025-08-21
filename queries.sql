@@ -285,3 +285,13 @@ SELECT membership_years AS "Membership Years",
 FROM customer_segmentation
 GROUP BY membership_years
 ORDER BY AVG(spending_score) DESC;
+
+# Join table and views to use in Tableau
+SELECT DISTINCT c.*,
+	a.age_group,
+    cc.customer_category,
+    ig.income_group
+FROM customer_segmentation c
+INNER JOIN age_groups a USING(id)
+INNER JOIN customer_categories cc USING(id)
+INNER JOIN income_groups ig USING(id);
