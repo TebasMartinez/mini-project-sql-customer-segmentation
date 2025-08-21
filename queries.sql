@@ -109,7 +109,7 @@ SELECT *,
         WHEN age >= 30 AND age < 40 THEN "Over-thirties"
         WHEN age >= 40 AND age < 50 THEN "Over-forties"
         WHEN age >= 50 AND age < 60 THEN "Over-fifties"
-        WHEN age >= 50 THEN "Seniors"
+        WHEN age >= 60 THEN "Seniors"
 	END AS age_group
 FROM customer_segmentation;
 
