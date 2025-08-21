@@ -6,16 +6,40 @@ Mini Project created for Week 7 of Ironhack's Data Analytics Bootcamp.
 Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com/datasets/fahmidachowdhury/customer-segmentation-data-for-marketing-analysis) from Kaggle. Simulated customer data created for customer segmentation practice. 
   
 ## Business Questions
-- High-value segments: Which demographics generated the most revenue in their last purchase?
+- High-value segments: which demographics generated the most revenue in their last purchase?
 - Loyalty: are customers with longer memberships also the ones with better spending scores?
 - What are the preferred categories per customer segment? 
 
 ## Customer Segmentation
-- Created segmentations based on Gender, age, and income. Each of these segmentations is created with views per group in each segmentation, previously creating columns with CASE-WHEN when needed.
-- RFM had already been applied to this dataset, as it came with a spending_score column. This column was used for further segmentation to create customer categories: Bad, Medium, Good, Great.
+- Created segmentations based on:
+  - Gender <-- column for this category already existing.
+  - Age <-- created age_group column with CASE-WHEN, and stored the new table in the view `age_groups`.
+  - Customer category <-- created customer_category column with CASE-WHEN, and stored the new table in the view `customer_categories`.
+- RFM had already been applied to this dataset, as it came with a spending_score column. This column was used for further segmentation to create the customer categories: Bad, Medium, Good, Great.
 
 ## Schema
 ![Schema](images/schema.png)
+
+## Stored Procedures
+### `last_purchase_revenue_per_segment` 
+-  Prints a table with the sum of the last purchase grouped by the groups in a chosen segment. Takes two arguments:
+   - `segment_view`, a varchar with the name of the view/table we want to explore.
+   - `segment_column`, a varchar with the name of the column we want to use to group by.
+
+Use example:
+````sql
+CALL last_purchase_revenue_per_segment("age_groups", "age_group");
+````
+
+### `preferred_categories_per_segment`
+- Prints a table with the count of customers in each group in the chosen segment that prefers each product category, and the percentage it represent within its group. Takes two arguments:
+   - `segment_view`, a varchar with the name of the view/table we want to explore.
+   - `segment_column`, a varchar with the name of the column we want to use to group by.
+  
+Use example:
+````sql
+CALL preferred_categories_per_segment("customer_segmentation", "gender");
+````
 
 ## Initial Exploration
 ### Categorical variables
@@ -64,7 +88,7 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 |Electronics       |43.0791 |50.2977            |5.8047               |26.4279                |496.6322776971861        |
 
 ## Answers to Business Questions
-- High-value segments: Which demographics generated the most revenue in their last purchase?
+- High-value segments: which demographics generated the most revenue in their last purchase?
 
 |Gender|Revenue (last purchase per customer)|
 |------|------------------------------------|
@@ -110,13 +134,13 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 |Male  |Sports            |77                                          |21.57%    |
 |Other |Electronics       |74                                          |22.63%    |
 
-|Age Group|Preferred Category|Customers who prefer this category|Percentage|
-|---------|------------------|----------------------------------|----------|
-|Young adult|Electronics       |52                                |23.21%    |
+|Age Group    |Preferred Category|Customers who prefer this category|Percentage|
+|-------------|------------------|----------------------------------|----------|
+|Young adult  |Electronics       |52                                |23.21%    |
 |Over-thirties|Sports            |48                                |26.82%    |
-|Over-forties|Home & Garden     |48                                |23.19%    |
-|Over-fifties|Electronics       |41                                |21.58%    |
-|Seniors  |Sports            |46                                |23.00%    |
+|Over-forties |Home & Garden     |48                                |23.19%    |
+|Over-fifties |Electronics       |41                                |21.58%    |
+|Seniors      |Sports            |46                                |23.00%    |
 
 |Customer Category|Preferred Category|Customers who prefer this category|Percentage|
 |-----------------|------------------|----------------------------------|----------|
@@ -131,3 +155,6 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 - [_How to Create a Customer Segmentation Model in SQL_, GeeksforGeeks](https://www.geeksforgeeks.org/sql/how-to-create-a-customer-segmentation-model-in-sql/)
 - [_Customer Segmentation: Implementing the RFM Model with SQL_, Medium](https://medium.com/%40shirvaron/customer-segmentation-implementing-the-rfm-model-with-sql-8d07fd990d32)
 - [_Know Your Customers: Step-by-Step Guide to Customer Segmentation Analysis with SQL (Plus The Code To Get Started)_, New Prediction](https://newprediction.com/customer-segmentation-with-sql/)
+
+- [Presentation](https://docs.google.com/presentation/d/15mRESaiZxd_OOaQQssvAN-PAZM6-iN7SlBD2VBhOxIQ/edit?usp=sharing)
+[![Project Presentation](images/presentation.svg)](https://docs.google.com/presentation/d/15mRESaiZxd_OOaQQssvAN-PAZM6-iN7SlBD2VBhOxIQ/edit?usp=sharing)
