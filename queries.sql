@@ -8,6 +8,17 @@ SELECT DISTINCT gender FROM customer_segmentation;
 
 SELECT DISTINCT preferred_category FROM customer_segmentation;
 
+# Count amount of each unique value of categorical variables
+SELECT gender, COUNT(*) AS "Customer under this category"
+FROM customer_segmentation
+GROUP BY gender
+ORDER BY COUNT(*) DESC;
+
+SELECT preferred_category, COUNT(*) AS "Customer under this category"
+FROM customer_segmentation
+GROUP BY preferred_category
+ORDER BY COUNT(*) DESC;
+
 # Check avgs of all numerical variables
 SELECT AVG(age),
 	AVG(spending_score),
@@ -267,3 +278,10 @@ CALL last_purchase_revenue_per_segment("customer_segmentation", "gender");
 CALL last_purchase_revenue_per_segment("age_groups", "age_group");
 # Last purchase revenue per customer categories
 CALL last_purchase_revenue_per_segment("customer_categories", "customer_category");
+
+# LOYALTY: ARE CUSTOMERS WITH LONGER MEMBERSHIPS ALSO THE ONES WITH BETTER SPENDING SCORES?
+SELECT membership_years AS "Membership Years",
+	ROUND(AVG(spending_score), 2) AS "Spending Score Average"
+FROM customer_segmentation
+GROUP BY membership_years
+ORDER BY AVG(spending_score) DESC;
