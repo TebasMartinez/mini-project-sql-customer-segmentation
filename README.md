@@ -14,8 +14,7 @@ Using [Customer Segmentation Data for Marketing Analysis](https://www.kaggle.com
 - Created segmentations based on:
   - Gender <-- column for this category already existing.
   - Age <-- created age_group column with CASE-WHEN, and stored the new table in the view `age_groups`.
-  - Customer category <-- created customer_category column with CASE-WHEN, and stored the new table in the view `customer_categories`.
-- RFM had already been applied to this dataset, as it came with a spending_score column. This column was used for further segmentation to create the customer categories: Bad, Medium, Good, Great.
+  - Customer category <-- created customer_category column with CASE-WHEN based on the spending_score column, and stored the new table in the view `customer_categories`.
 
 ## Schema
 ![Schema](images/schema.png)
